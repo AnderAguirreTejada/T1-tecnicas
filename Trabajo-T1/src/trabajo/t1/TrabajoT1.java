@@ -72,7 +72,6 @@ public class TrabajoT1 {
         switch (opt) {
             case 1:
                 tipo_doc = "DNI";
-                System.out.println("Se uso dni");
                 break;
             case 2: 
                 tipo_doc = "Carnet";
