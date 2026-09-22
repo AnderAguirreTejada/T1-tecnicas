@@ -92,5 +92,35 @@ public class Alumno {
         return false;
     }
     
+    int calcularPensionFinal(String beca, String nivel_econ){
+        
+        int pension = 0;
+        
+        switch (nivel_econ) {
+            case "A":
+                pension = 500;
+                break;
+            case "B":
+                pension = 350;
+                break;
+            case "C":
+                pension = 150;
+                break;
+        }
+        
+        if(beca.equals("Completa")){
+            return 0;
+        }else if(beca.equals("Parcial")){
+            return pension/2;
+        }
+        
+        return pension;
+    }
     
+    void mostrar(){
+        System.out.println("=======================================");
+        System.out.println("Nombre: " + this.nombre);
+        System.out.println("Numero de documento: " + this.num_doc);
+        System.out.println("=======================================");
+    }
 }
