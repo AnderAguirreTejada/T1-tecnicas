@@ -33,8 +33,14 @@ public class TrabajoT1 {
     Scanner scanner = new Scanner(System.in);
     switch (opcion) {
         case 1:
-            System.out.println("Indique los datos del estudiante a agregar: ");
-            agregarEstudiante(generico, controlador);
+            try{
+                System.out.println("Indique los datos del estudiante a agregar: ");
+                Alumno agregado = agregarEstudiante(generico, controlador);
+                controlador.agregarAlumno(agregado);
+                break;
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            }
         case 2:
             try{
                 System.out.println("Indique la pension del estudiante del que desea calcular la pension: ");
@@ -45,13 +51,15 @@ public class TrabajoT1 {
             }catch (Exception e){
                 System.out.println(e.getMessage());
             }
+            break;
         case 3:
             System.out.println("Mostrando todos los estudiantes agregados hasta el momento: ");
             controlador.mostrarRegistro();
+            break;
         }
     }
     
-    public static void agregarEstudiante(Alumno generico, AlumnoController controlador){
+    public static Alumno agregarEstudiante(Alumno generico, AlumnoController controlador){
         Scanner scanner = new Scanner(System.in);
         
         System.out.println("Indique el nombre: ");
@@ -70,9 +78,8 @@ public class TrabajoT1 {
                 tipo_doc = "Carnet";
                 break;
         }
-        
         System.out.println("Indique el numnero de documento: ");
-        
+        scanner.nextLine();
         String num = scanner.nextLine();
         
         System.out.println("Indique el nivel socioeconomico (Seleccione una opcion): ");
@@ -109,5 +116,7 @@ public class TrabajoT1 {
         generico.setNum_doc(num);
         generico.setNivel_economico(nivel_econ);
         generico.setTipo_beca(tipo_beca);
+        
+        return generico;
     }
 }
