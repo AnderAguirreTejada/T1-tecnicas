@@ -27,4 +27,18 @@ public class AlumnoController {
             i.mostrar();
         }
     }
+    
+    Alumno buscarEstudiante(String dni){
+        try{
+            for (Alumno i : lista){
+                if(i.getNum_doc().equals(dni)){
+                    return i;
+                }
+            }
+            return null;
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
 }
