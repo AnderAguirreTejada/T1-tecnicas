@@ -21,7 +21,7 @@ public class Alumno {
     public Alumno(String nombre, String tipo_doc, String num_doc, String nivel_economico, String tipo_beca) {
         this.nombre = nombre;
         this.tipo_doc = tipo_doc;
-        this.num_doc = num_doc;
+        setNum_doc(num_doc);
         this.nivel_economico = nivel_economico;
         this.tipo_beca = tipo_beca;
     }
